@@ -22,7 +22,14 @@ These can be used as a drop in replacement for the ``python:3.6-slim`` or ``pyth
 Using the image
 ---------------
 
-The images can be run with docker-compose or docker run.
+The images can be run with docker-compose or docker run.  You must add the ``SYS_PTRACE`` capability to the container.
+Using ``docker run`` this can be done by adding the ``--cap-add=SYS_PTRACE`` command line argument.  For docker-compose,
+the following section must be added to a docker-compose.yml file:
+
+::
+
+    cap_add:
+      - SYS_PTRACE
 
 Once the image is running, the running container can be attached too with ``docker exec``. Once a his is attached, you
 can use ``gdb -p 1`` to attach to the running process. An example of this is seen below:
