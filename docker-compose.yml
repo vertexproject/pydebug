@@ -1,0 +1,17 @@
+version: '3'
+
+# Startup an example container for inspection
+
+services:
+
+  pydebug:
+    image: "py36:debug"
+    network_mode: "host"
+    volumes:
+      - ./scripts/:/scripts/
+    working_dir: /
+    entrypoint:
+      ["python3", "-m", "scripts.stall"]
+    # Add SYS_PTRACE so we can attach to the procecess in the container
+    cap_add:
+      - SYS_PTRACE
