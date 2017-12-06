@@ -17,7 +17,10 @@ def foo(arg3):
     print('foo')
     ifloat = float(arg3)
     jstr = str(ifloat)
-    time.sleep(arg3)
+    c = 0
+    for i in range(arg3):
+        c = c + 1
+        time.sleep(1)
 
 if __name__ == '__main__':
     v1 = 100000
