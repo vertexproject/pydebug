@@ -5,9 +5,9 @@ Using python-gdb.py is hard enough.  Using GDB with a process launched in a dock
 the python-gdb.py helpers with a Python process run from a GDB container is a painful affair.  It doesn't have to be
 this way.
 
-The Dockerfile provided here is modified from the official Docker ``python:3.6.3-slim`` image file in order to  which
-can be used support GDB debugging of python programs using the gdb bindings provided by CPython.  Details about that
-can be found at the following sites:
+The Dockerfile provided here is modified from the official Docker ``python:3.6.3-slim`` Dockerfile in order to provide
+support for GDB debugging of python programs using the gdb bindings provided by CPython.  Details about that can be
+found at the following sites:
 
 - https://docs.python.org/devguide/gdb.html
 - https://wiki.python.org/moin/DebuggingWithGdb
