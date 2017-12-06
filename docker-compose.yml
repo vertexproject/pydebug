@@ -1,11 +1,17 @@
 version: '3'
 
 # Startup an example container for inspection
+#
+# The scripts.stall script contains a very long running time.sleep() loop
+# This can be run with docker-compose up -d --force-recreate
+# Once this is running you can attach to the container with the following command
+# docker exec -it --privileged debugpython_pydebug_1 bash
+# Then you can attach to the running process with gdb -p 1 and inspect the python process
 
 services:
 
   pydebug:
-    image: "py36:debug"
+    image: "vertexproject/pydebug:3.6.3-slim"
     network_mode: "host"
     volumes:
       - ./scripts/:/scripts/
