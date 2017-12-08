@@ -69,7 +69,6 @@ RUN set -ex \
 	\
 	&& cd /usr/src/python \
 	&& gnuArch="$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)" \
-	&& CFLAGS="-g -O0" \
 	&& ./configure \
 		--build="$gnuArch" \
 		--enable-loadable-sqlite-extensions \
@@ -78,6 +77,7 @@ RUN set -ex \
 		--with-system-ffi \
 		--without-ensurepip \
 		--with-pydebug \
+		CFLAGS="-g -O0" \
 	&& make -j "$(nproc)" \
 	&& make install \
 	&& mkdir /gdb \
