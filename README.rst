@@ -116,3 +116,12 @@ can use ``gdb -p 1`` to attach to the running process. An example of this is see
     c = 298
     i = 297
 
+The image can also be run in a interactive mode directly.
+
+::
+
+    # Run the base image by itself
+    docker run --rm -it --entrypoint /bin/bash --cap-add=SYS_PTRACE vertexproject/pydebug:3.6-slim
+
+    # Run the debug image with additional Synapse specific libraries loaded it.
+    docker run --rm -it --entrypoint /bin/bash --cap-add=SYS_PTRACE vertexproject/synapse-base-image:py36-debug
